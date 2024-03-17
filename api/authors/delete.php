@@ -1,0 +1,28 @@
+<?php
+
+include_once '../../config/Database.php';
+include_once '../../models/Author.php';
+
+//Instantiate DB & Connect
+$database = new Database();
+$db = $database->connect();
+
+//instantiate Author object
+$author = new Author($db);
+
+//get raw posted data
+$data = json_decode(file_get_contents("php://input"));
+
+//assign what's in the data obj to the author obj
+$author->id = $data->id;
+
+//create author
+if($author->delete()){
+    echo json_encode(
+        array('message'=>'author deleted')
+    );
+} else {
+    echo json_encode(
+        array('message' => 'author not deleted')
+    );
+}

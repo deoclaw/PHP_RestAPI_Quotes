@@ -11,3 +11,8 @@ I am using Ubuntu (the stripped down install) LTS on a VM on a pop!_os install. 
 3. ```\password``` to change the user `postgres` to have a new password.
 
 Another [solution](https://discuss.codecademy.com/t/postbird-cant-connect/609229) seemed to involve creating your own user based on the username of the machine but the above worked for me so I left it alone.
+
+In creating the database, Postbird was a bit glitchy and required running a query to [alter the database](https://stackoverflow.com/questions/68895862/how-to-add-foreign-key-in-postgresql). If something is going to have a GUI I'd hope it would be less glitchy or hidden than it is. Honestly, I'm not totally sure what the point of using Postbird is since I'm going to have to run commands to populate these quotes ANY way. There's not really a point to a GUI for this (unless the alternative is so much worse, which, I guess it is as psql seems insanely obtuse.) 
+
+## Keep getting 500 error
+It's all hooked up and yet?? 
