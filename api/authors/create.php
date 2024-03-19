@@ -14,16 +14,17 @@ $author = new Author($db);
 $data = json_decode(file_get_contents("php://input"));
 
 //assign what's in the data obj to the author obj
-$author->id = $data->id;
+// $author->id = $data->id;
 $author->author = $data->author;
 
 //create author
 
 if($author->create()){
-    echo json_encode(
-        array('id'=>$author->id,
-        "author"=>$author->author)
+    $author_arr=array(
+        'id'=>$author->id,
+        'author'=>$author->author
     );
+    print_r(json_encode($author_arr));
 } else {
     echo json_encode(
         array('message' => 'Missing Required Parameters')

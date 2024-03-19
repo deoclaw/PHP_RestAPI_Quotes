@@ -17,9 +17,21 @@
             require ('read.php');
             break;
         case 'POST':
+            if(is_null($data->author)){
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+                break;
+            }
             require ('create.php');
             break;
         case 'PUT':
+            if(is_null($data->author)){
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+                break;
+            }
             require ('update.php');
             break;
         case 'DELETE':

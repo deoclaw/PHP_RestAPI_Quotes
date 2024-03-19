@@ -22,3 +22,6 @@ Making my quotes show for authors and categories kept failing. Stepping through 
 
 ## I should have started with the live DB
 I created my database locally thinking I could easily export and import via Postbird and Render. Mistake! While there is a command ```pg_dump``` it basically necessitated I switch my user to ```postgres```, run ```psql```, run ```pg_dump quotesdb > quotesdb.sql``` and then run ```chmod 777``` on the file and then ```sudo mv``` the file to somewhere I could more easily access it. Even after that, I had to essentially retype the commands because everything wanted to ```COPY from STDIN``` which was not cooperating! I know I've been spoiled by a GUI for everything but this felt like overkill.
+
+## Passing the Automated Tests Was Painful
+I feel like there was a huge gap between what we trained on and then what we had to attempt. I could clear the general requirements but still failed many of the automated tests and much of the headaches was trying to parse what was trying to be passed. I feel like my code is a mess because I had to go back and try to shoehorn in solutions for the tests.
