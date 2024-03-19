@@ -19,17 +19,25 @@ if(is_null($data->id)){
     );
 }
 
-$quote->read_single();
-if(is_null($quote->quote)){
-    echo json_encode(
-        array('message' => 'No Quotes Found')
-    );
-} else {
+// $quote->read_single();
+// $quotes_arr = array(
+//     'id'=>$quote->id,
+//         'quote'=>$quote->quote,
+//         // 'author_id'=>$quote->author_id,
+//         'author'=>$quote->author_name,
+//         // 'category_id'=>$quote->category_id,
+//         'category'=>$quote->category_name
+// );
+// if(is_null($quote->quote)){
+//     echo json_encode(
+//         array('message' => 'No Quotes Found')
+//     );
+// } else {
 
 //assign what's in the data obj to the quote obj
 $quote->id = $data->id;
 
-//create quote
+//delete quote
 if($quote->delete()){
     echo json_encode(
         array('id'=>$quote->id)
@@ -38,5 +46,4 @@ if($quote->delete()){
     echo json_encode(
         array('message' => 'No Quotes Found')
     );
-}
 }
