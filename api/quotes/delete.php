@@ -17,8 +17,7 @@ if(is_null($data->id)){
     echo json_encode(
         array('message' => 'No Quotes Found')
     );
-    exit();
-}
+} else{
 
 //assign what's in the data obj to the quote obj
 $quote->id = $data->id;
@@ -26,10 +25,11 @@ $quote->id = $data->id;
 //create quote
 if($quote->delete()){
     echo json_encode(
-        array('message'=>$quote->id)
+        array('id'=>$quote->id)
     );
 } else {
     echo json_encode(
         array('message' => 'No Quotes Found')
     );
+}
 }

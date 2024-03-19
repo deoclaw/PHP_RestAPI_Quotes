@@ -16,11 +16,19 @@ $data = json_decode(file_get_contents("php://input"));
 //assign what's in the data obj to the author obj
 $author->id = $data->id;
 
-//create author
+// $author->read_single();
+// if(is_null($author->author)){
+//     echo json_encode(
+//         array('message' => 'Missing Required Parameters')
+//     );
+// }
+
+//delete author
 if($author->delete()){
-    echo json_encode(
-        array('message'=>$author->id)
+    json_encode(
+        array('id'=>$author->id)
     );
+    
 } else {
     echo json_encode(
         array('message' => 'author not deleted')
