@@ -46,7 +46,7 @@ if ($category->id=isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($categorys_arr);
+        echo json_encode($categorys_arr['data']);
 
     } else {
         //no categorys

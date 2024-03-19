@@ -61,7 +61,7 @@ if (isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($quotes_arr);
+        echo json_encode($quotes_arr['data']);
     } else {
         //no categorys
         echo json_encode(
@@ -102,7 +102,7 @@ if (isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($quotes_arr);
+        echo json_encode($quotes_arr)['data'];
     } else {
         //no categorys
         echo json_encode(
@@ -144,7 +144,7 @@ if (isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($quotes_arr);
+        echo json_encode($quotes_arr['data']);
     } else {
         //no categorys
         echo json_encode(
@@ -186,7 +186,7 @@ if (isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($quotes_arr);
+        echo json_encode($quotes_arr['data']);
 
     } else {
         //no categorys
