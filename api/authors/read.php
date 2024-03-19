@@ -51,7 +51,7 @@ if ($author->id=isset($_GET['id'])){
     } else {
         //no authors
         echo json_encode(
-            array('message'=>'Authors Not Found')
+            array('message'=>'author_id Not Found')
         );
     }
 

@@ -24,6 +24,6 @@ if($author->create()){
     );
 } else {
     echo json_encode(
-        array('message' => 'author not created')
+        array('message' => 'Missing Required Parameters')
     );
 }

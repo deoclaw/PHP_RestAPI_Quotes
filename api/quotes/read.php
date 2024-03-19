@@ -191,7 +191,7 @@ if (isset($_GET['id'])){
     } else {
         //no categorys
         echo json_encode(
-            array('message'=>'Quotes Not Found')
+            array('message'=>'No Quotes Found')
         );
     }
 

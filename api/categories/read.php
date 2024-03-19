@@ -51,7 +51,7 @@ if ($category->id=isset($_GET['id'])){
     } else {
         //no categorys
         echo json_encode(
-            array('message'=>'Categories Not Found')
+            array('message'=>'category_id Not Found')
         );
     }
 

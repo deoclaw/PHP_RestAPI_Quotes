@@ -24,6 +24,6 @@ if($category->create()){
     );
 } else {
     echo json_encode(
-        array('message' => 'category not created')
+        array('message' => 'Missing Required Parameters')
     );
 }

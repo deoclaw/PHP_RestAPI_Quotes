@@ -32,8 +32,8 @@ class Quote{
     //GET QUOTES
     public function read(){
         $query = 'SELECT
-            -- a.author as author_name,
-            -- c.category as category_name,
+            a.author as author_name,
+            c.category as category_name,
             q.id,
             q.quote,
             q.author_id,
