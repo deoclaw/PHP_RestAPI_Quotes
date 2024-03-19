@@ -18,9 +18,11 @@ $author->id = $data->id;
 $author->author = $data->author;
 
 //create author
+
 if($author->create()){
     echo json_encode(
-        array('message'=>'author created')
+        array('id'=>$author->id,
+        "author"=>$author->author)
     );
 } else {
     echo json_encode(

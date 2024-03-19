@@ -22,7 +22,8 @@ $category->category = $data->category;
 //create category
 if($category->update()){
     echo json_encode(
-        array('message'=>'category updated')
+        array('id'=>$author->id,
+        "author"=>$author->author)
     );
 } else {
     echo json_encode(
