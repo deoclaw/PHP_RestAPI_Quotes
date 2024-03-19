@@ -13,6 +13,11 @@ $category = new Category($db);
 //get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
+if(is_null($data->id) or is_null($data->category)){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+} else {
 //set id to be updated
 $category->id = $data->id;
 
@@ -22,11 +27,12 @@ $category->category = $data->category;
 //create category
 if($category->update()){
     echo json_encode(
-        array('id'=>$author->id,
-        "author"=>$author->author)
+        array('id'=>$category->id,
+        "category"=>$category->category)
     );
 } else {
     echo json_encode(
-        array('message' => 'category not updated')
+        array('message' => 'Missing Required Parameters')
     );
+}
 }

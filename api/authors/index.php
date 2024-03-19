@@ -10,6 +10,8 @@
         exit();
     }
 
+    //for post and put, determine if an id is sent through! otherwise nix
+
     switch ($method) {
         case 'GET':
             require ('read.php');
