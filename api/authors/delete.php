@@ -16,16 +16,17 @@ $data = json_decode(file_get_contents("php://input"));
 //assign what's in the data obj to the author obj
 $author->id = $data->id;
 
-// $author->read_single();
-// if(is_null($author->author)){
-//     echo json_encode(
-//         array('message' => 'Missing Required Parameters')
-//     );
-// }
+$quote->read_single();
+if(is_null($quote->quote)){
+    echo json_encode(
+        array('message' => 'No Quotes Found')
+    );
+} else {
+
 
 //delete author
 if($author->delete()){
-    json_encode(
+    echo json_encode(
         array('id'=>$author->id)
     );
     
@@ -33,4 +34,5 @@ if($author->delete()){
     echo json_encode(
         array('message' => 'author not deleted')
     );
+}
 }
