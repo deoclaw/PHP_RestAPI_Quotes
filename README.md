@@ -16,3 +16,9 @@ In creating the database, Postbird was a bit glitchy and required running a quer
 
 ## Stopping PostgreSQL
 Not easy to understand how to start/stop this when I'm not using it. Found instructions on [stackoverflow](https://stackoverflow.com/a/49828382) to use ```systemctl stop postgresql``` and ```systemctl start postgresql``` respectively (view status with ```systemctl status postgresql```)
+
+## My Quotes Didn't Work Until They Did
+Making my quotes show for authors and categories kept failing. Stepping through it still kept producing JSON errors. Eventually I just removed any var_dumps or echos and it suddenly worked. I am not sure what happened. Additionally, I feel like a lot of code was reused but at this point, it works so it's staying. I'm sure I can abstract out into a function later.
+
+## I should have started with the live DB
+I created my database locally thinking I could easily export and import via Postbird and Render. Mistake! While there is a command ```pg_dump``` it basically necessitated I switch my user to ```postgres```, run ```psql```, run ```pg_dump quotesdb > quotesdb.sql``` and then run ```chmod 777``` on the file and then ```sudo mv``` the file to somewhere I could more easily access it. Even after that, I had to essentially retype the commands because everything wanted to ```COPY from STDIN``` which was not cooperating! I know I've been spoiled by a GUI for everything but this felt like overkill.
