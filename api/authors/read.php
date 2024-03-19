@@ -46,7 +46,7 @@ if ($author->id=isset($_GET['id'])){
         }
 
         //turn to JSON and output
-        echo json_encode($authors_arr);
+        echo json_encode($authors_arr['data']);
 
     } else {
         //no authors
