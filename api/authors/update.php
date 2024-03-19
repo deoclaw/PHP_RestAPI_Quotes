@@ -1,17 +1,17 @@
 <?php
 
-include_once '../../config/Database.php';
-include_once '../../models/Author.php';
+// include_once '../../config/Database.php';
+// include_once '../../models/Author.php';
 
-//Instantiate DB & Connect
-$database = new Database();
-$db = $database->connect();
+// //Instantiate DB & Connect
+// $database = new Database();
+// $db = $database->connect();
 
-//instantiate Author object
-$author = new Author($db);
+// //instantiate Author object
+// $author = new Author($db);
 
 //get raw posted data
-$data = json_decode(file_get_contents("php://input"));
+// $data = json_decode(file_get_contents("php://input"));
 
 if(is_null($data->author)){
     echo json_encode(
