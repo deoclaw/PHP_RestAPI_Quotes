@@ -10,6 +10,17 @@
         exit();
     }
 
+    include_once '../../config/Database.php';
+    include_once '../../models/Author.php';
+    include_once '../../functions/isValid.php';
+
+    //Instantiate DB & Connect
+    $database = new Database();
+    $db = $database->connect();
+
+    //instantiate Author object
+    $author = new Author($db);
+    
     //for post and put, determine if an id is sent through! otherwise nix
 
     switch ($method) {
@@ -17,10 +28,23 @@
             require ('read.php');
             break;
         case 'POST':
+            if(isValid($_GET['id'], $author)){
             require ('create.php');
+            }else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         case 'PUT':
-            require ('update.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isValid($data->id, $author)){
+                require ('update.php');
+            }else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         case 'DELETE':
             require ('delete.php');

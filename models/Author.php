@@ -52,10 +52,16 @@ class Author {
         $stmt->bindParam(':id', $this->id);
         $stmt->execute();
 
+        //get number of rows
+        $num = $stmt->rowCount();
+        if($num === 0){
+            $this->id = NULL;
+            $this->author = NULL;
+        }else {
+
         //get returned array
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($row);
-        if (count($row)>0){
+        
         $this->id = $row['id'];
         $this->author = $row['author'];
         }
