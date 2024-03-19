@@ -13,16 +13,23 @@ $quote = new Quote($db);
 //get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
+if(is_null($data->id)){
+    echo json_encode(
+        array('message' => 'No Quotes Found')
+    );
+    exit();
+}
+
 //assign what's in the data obj to the quote obj
 $quote->id = $data->id;
 
 //create quote
 if($quote->delete()){
     echo json_encode(
-        array('message'=>'quote deleted')
+        array('message'=>$quote->id)
     );
 } else {
     echo json_encode(
-        array('message' => 'quote not deleted')
+        array('message' => 'No Quotes Found')
     );
 }

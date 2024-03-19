@@ -13,11 +13,13 @@ $author = new Author($db);
 //get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-if(is_null($data->id) or is_null($data->author)){
+if(is_null($data->author)){
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );
-} else {
+    quit();
+}
+
 //set id to be updated
 $author->id = $data->id;
 
@@ -34,5 +36,4 @@ if($author->update()){
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );
-}
 }

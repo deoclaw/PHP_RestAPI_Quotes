@@ -19,7 +19,7 @@ $category->id = $data->id;
 //create category
 if($category->delete()){
     echo json_encode(
-        array('message'=>'category deleted')
+        array('message'=>$category->id)
     );
 } else {
     echo json_encode(

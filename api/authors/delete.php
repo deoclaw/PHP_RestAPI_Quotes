@@ -19,7 +19,7 @@ $author->id = $data->id;
 //create author
 if($author->delete()){
     echo json_encode(
-        array('message'=>'author deleted')
+        array('message'=>$author->id)
     );
 } else {
     echo json_encode(
