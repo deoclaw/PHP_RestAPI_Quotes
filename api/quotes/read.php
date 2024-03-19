@@ -19,10 +19,10 @@ if (isset($_GET['id'])){
     $quotes_arr = array(
         'id'=>$quote->id,
         'quote'=>$quote->quote,
-        'author_id'=>$quote->author_id,
-        'author_name'=>$quote->author_name,
-        'category_id'=>$quote->category_id,
-        'category_name'=>$quote->category_name
+        // 'author_id'=>$quote->author_id,
+        'author'=>$quote->author_name,
+        // 'category_id'=>$quote->category_id,
+        'category'=>$quote->category_name
     );
     print_r(json_encode($quotes_arr));
 } elseif (isset($_GET['author_id']) and isset($_GET['category_id'])){
@@ -49,12 +49,12 @@ if (isset($_GET['id'])){
             // q.quote,
             // q.author_id,
             // q.category_id
-                'id' => $id,
-                'quote'=>$quote,
-                // 'author_id'=>$author_id,
-                // 'category_id'=>$category_id,
-                'category_name' => $category_name,
-                'author_name'=>$author_name
+            'id' => $id,
+            'quote'=>$quote,
+            // 'author_id'=>$author_id,
+            // 'category_id'=>$category_id,
+            'category' => $category_name,
+            'author'=>$author_name
             );
             //push to 'data'
             array_push($quotes_arr['data'], $quote_item);
@@ -90,12 +90,12 @@ if (isset($_GET['id'])){
             // q.quote,
             // q.author_id,
             // q.category_id
-                'id' => $id,
-                'quote'=>$quote,
-                // 'author_id'=>$author_id,
-                // 'category_id'=>$category_id,
-                'category_name' => $category_name,
-                'author_name'=>$author_name
+            'id' => $id,
+            'quote'=>$quote,
+            // 'author_id'=>$author_id,
+            // 'category_id'=>$category_id,
+            'category' => $category_name,
+            'author'=>$author_name
             );
             //push to 'data'
             array_push($quotes_arr['data'], $quote_item);
@@ -132,12 +132,12 @@ if (isset($_GET['id'])){
             // q.quote,
             // q.author_id,
             // q.category_id
-                'id' => $id,
-                'quote'=>$quote,
-                // 'author_id'=>$author_id,
-                // 'category_id'=>$category_id,
-                'category_name' => $category_name,
-                'author_name'=>$author_name
+            'id' => $id,
+            'quote'=>$quote,
+            // 'author_id'=>$author_id,
+            // 'category_id'=>$category_id,
+            'category' => $category_name,
+            'author'=>$author_name
             );
             //push to 'data'
             array_push($quotes_arr['data'], $quote_item);
@@ -178,8 +178,8 @@ if (isset($_GET['id'])){
                 'quote'=>$quote,
                 // 'author_id'=>$author_id,
                 // 'category_id'=>$category_id,
-                'category_name' => $category_name,
-                'author_name'=>$author_name
+                'category' => $category_name,
+                'author'=>$author_name
             );
             //push to 'data'
             array_push($quotes_arr['data'], $quote_item);
