@@ -11,9 +11,9 @@ class Database {
 
     //constructor to get our environment variables in the htaccess file
     public function __construct() {
-        $this->host = getenv('HOST');
-        $this->username = getenv('USERNAME');
-        $this->password = getenv('PASSWORD');
+        $this->host = getenv('DBHOST');
+        $this->username = getenv('DBUSERNAME');
+        $this->password = getenv('DBPASSWORD');
         $this->db_name = getenv('DBNAME');
         $this->port = getenv('DBPORT');
     }
