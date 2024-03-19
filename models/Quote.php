@@ -48,6 +48,79 @@ class Quote{
 
     }
 
+    //get multiple
+    public function read_by_author(){
+        $query = 'SELECT
+            a.author as author_name,
+            c.category as category_name,
+            q.id,
+            q.quote,
+            q.author_id,
+            q.category_id
+        FROM '.$this->table.' q
+        INNER JOIN categories c on q.category_id = c.id
+        INNER JOIN author a on q.author_id = a.id
+        WHERE
+            q.author_id = :author_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':author_id', $this->author_id);
+        //$stmt->bindParam(':category_id', $this->category_id);
+
+        $stmt->execute();
+        return $stmt;
+    }
+    public function read_by_category(){
+        $query = 'SELECT
+            a.author as author_name,
+            c.category as category_name,
+            q.id,
+            q.quote,
+            q.author_id,
+            q.category_id
+        FROM '.$this->table.' q
+        INNER JOIN categories c on q.category_id = c.id
+        INNER JOIN author a on q.author_id = a.id
+        WHERE
+            q.category_id = :category_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        //$stmt->bindParam(':author_id', $this->author_id);
+        $stmt->bindParam(':category_id', $this->category_id);
+
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function read_by_both(){
+        $query = 'SELECT
+            a.author as author_name,
+            c.category as category_name,
+            q.id,
+            q.quote,
+            q.author_id,
+            q.category_id
+        FROM '.$this->table.' q
+        INNER JOIN categories c on q.category_id = c.id
+        INNER JOIN author a on q.author_id = a.id
+        WHERE
+            q.author_id = :author_id 
+        AND 
+            q.category_id = :category_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':author_id', $this->author_id);
+        $stmt->bindParam(':category_id', $this->category_id);
+
+        $stmt->execute();
+        
+        return $stmt;
+        
+    }
+
     //get single
     public function read_single(){
         $query = 'SELECT
