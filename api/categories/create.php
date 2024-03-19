@@ -14,7 +14,7 @@ $category = new Category($db);
 $data = json_decode(file_get_contents("php://input"));
 
 //assign what's in the data obj to the category obj
-$category->id = $data->id;
+// $category->id = $data->id;
 $category->category = $data->category;
 
 //create category

@@ -14,7 +14,7 @@ $quote = new Quote($db);
 $data = json_decode(file_get_contents("php://input"));
 
 //assign what's in the data obj to the quote obj
-$quote->id = $data->id;
+// $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->author_id = $data->author_id;
 $quote->category_id = $data->category_id;

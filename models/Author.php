@@ -54,6 +54,7 @@ class Author {
 
         //get returned array
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump($row);
         if (count($row)>0){
         $this->id = $row['id'];
         $this->author = $row['author'];
