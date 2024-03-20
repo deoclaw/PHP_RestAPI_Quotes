@@ -72,7 +72,7 @@
             if(isset($data->id) && isset($data->quote) && isset($data->author_id) && isset($data->category_id)){
                 if(isValid($id=$data->id, $quote))
                 {
-                    if(isValid($id=$data->author_id, $$author)){
+                    if(isValid($id=$data->author_id, $author)){
                         if(isValid($id=$data->category_id, $category)){
                             require ('update.php');
                             break;
@@ -90,7 +90,7 @@
                     }
                 } else {
                     echo json_encode(
-                        array('message' => 'Missing Required Parameters')
+                        array('message' => 'No Quote Found')
                     );
                     break;
                 }
@@ -105,9 +105,11 @@
             if(isset($data->id)){
                 if(isValid($id=$data->id, $quote)){
                     require ('delete.php');
-                }echo json_encode(
+                }else {
+                    echo json_encode(
                     array('message' => 'No Quotes Found')
-                );
+                    );
+                }
             }else{
                 echo json_encode(
                     array('message' => 'No Quotes Found')
