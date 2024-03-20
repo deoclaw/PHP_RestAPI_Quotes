@@ -1,16 +1,5 @@
 <?php
 
-include_once '../../config/Database.php';
-include_once '../../models/Quote.php';
-
-//Instantiate DB & Connect
-$database = new Database();
-$db = $database->connect();
-
-// Instantiate Quote Object
-$quote = new Quote($db); //takes a db connection
-
-
 //get ID from URL
 if (isset($_GET['id'])){
     //reads single

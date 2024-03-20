@@ -146,6 +146,15 @@ class Quote{
         //execute query
         $stmt->execute();
 
+        $num = $stmt->rowCount();
+        if($num === 0){
+            $this->quote = NULL;
+            $this->author_id = NULL;
+            $this->author_name= NULL;
+            $this->category_id = NULL;
+            $this->category_name = NULL;
+        } else{
+
         //grab the array that returns
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -155,6 +164,7 @@ class Quote{
         $this->author_name= $row['author_name'];
         $this->category_id = $row['category_id'];
         $this->category_name = $row['category_name'];
+        }
     }
 
     //create quote
