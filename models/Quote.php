@@ -148,6 +148,7 @@ class Quote{
 
         $num = $stmt->rowCount();
         if($num === 0){
+            $this->id = NULL;
             $this->quote = NULL;
             $this->author_id = NULL;
             $this->author_name= NULL;
@@ -159,6 +160,7 @@ class Quote{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         //set properties to whatever's returned
+        $this->id = $row['id'];
         $this->quote = $row['quote'];
         $this->author_id = $row['author_id'];
         $this->author_name= $row['author_name'];

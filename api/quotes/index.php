@@ -46,7 +46,7 @@
         case 'DELETE':
             $data = json_decode(file_get_contents("php://input"));
             if(isset($data->id)){
-                if(isValid($id=$data->id, $$quote)){
+                if(isValid($id=$data->id, $quote)){
                     require ('delete.php');
                 }
             }else{
