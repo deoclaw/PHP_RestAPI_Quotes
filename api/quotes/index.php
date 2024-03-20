@@ -45,7 +45,7 @@
         case 'POST':
             $data = json_decode(file_get_contents("php://input"));
             if(isset($data->quote) && isset($data->author_id) && isset($data->category_id)){
-                if(isValid($id=$data->author_id, $$author)){
+                if(isValid($id=$data->author_id, $author)){
                     if(isValid($id=$data->category_id, $category)){
                         require ('create.php');
                         break;
@@ -90,7 +90,7 @@
                     }
                 } else {
                     echo json_encode(
-                        array('message' => 'No Quote Found')
+                        array('message' => 'No Quotes Found')
                     );
                     break;
                 }
