@@ -42,6 +42,7 @@
                 echo json_encode(
                     array('message' => 'Missing Required Parameters')
                 );
+            break;
             }
             elseif(isValid($id=$data->id, $author)){
                 require ('update.php');
