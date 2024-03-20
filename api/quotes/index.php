@@ -19,12 +19,12 @@
     $db = $database->connect();
 
     //instantiate category object
-    $category = new Category($db);
+    $quote = new Category($db);
 
     switch ($method) {
         case 'GET':
             if(isset($_GET['id'])){
-                if(isValid($_GET['id'], $category)){
+                if(isValid($_GET['id'], $quote)){
                     require('read.php');
                     break;
                 }
@@ -44,7 +44,16 @@
             require ('update.php');
             break;
         case 'DELETE':
-            require ('delete.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->id)){
+                if(isValid($id=$data->id, $$quote)){
+                    require ('delete.php');
+                }
+            }else{
+                echo json_encode(
+                    array('message' => 'No Quotes Found')
+                );
+            }
             break;
         default:
             echo 'Uh-oh!';
