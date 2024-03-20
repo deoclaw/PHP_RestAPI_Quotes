@@ -25,6 +25,18 @@
 
     switch ($method) {
         case 'GET':
+            if(isset($_GET['id'])){
+                if(isValid($_GET['id'], $author)){
+                    require('read.php');
+                    break;
+                }
+                else{
+                    echo json_encode(
+                        array('message' => 'author_id Not Found')
+                    );
+                    break;
+                }
+            }
             require ('read.php');
             break;
         case 'POST':
