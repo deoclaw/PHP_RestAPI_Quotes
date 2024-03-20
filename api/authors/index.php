@@ -38,7 +38,12 @@
             break;
         case 'PUT':
             $data = json_decode(file_get_contents("php://input"));
-            if(isValid($id=$data->id, $author)){
+            if(is_null($data->author)){
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
+            elseif(isValid($id=$data->id, $author)){
                 require ('update.php');
             }else{
                 echo json_encode(
