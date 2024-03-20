@@ -40,8 +40,9 @@
             require ('read.php');
             break;
         case 'POST':
-            if(isValid($_GET['id'], $author)){
-            require ('create.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->author)){
+                require ('create.php');
             }else{
                 echo json_encode(
                     array('message' => 'Missing Required Parameters')
@@ -62,7 +63,16 @@
             }
             break;
         case 'DELETE':
-            require ('delete.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->id)){
+                if(isValid($id=$data->id, $author)){
+                    require ('delete.php');
+                }
+            }else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         default:
             echo 'Uh-oh!';
