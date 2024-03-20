@@ -18,8 +18,8 @@
     $database = new Database();
     $db = $database->connect();
 
-    //instantiate category object
-    $quote = new Category($db);
+    //instantiate quote object
+    $quote = new Quote($db);
 
     switch ($method) {
         case 'GET':
