@@ -1,15 +1,5 @@
 <?php
-// Headers
 
-include_once '../../config/Database.php';
-include_once '../../models/Category.php';
-
-//Instantiate DB & Connect
-$database = new Database();
-$db = $database->connect();
-
-//instantiate Category object
-$category = new Category($db);
 
 //get ID from URL
 if ($category->id=isset($_GET['id'])){

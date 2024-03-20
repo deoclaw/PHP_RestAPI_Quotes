@@ -10,18 +10,69 @@
         exit();
     }
 
+    include_once '../../config/Database.php';
+    include_once '../../models/Category.php';
+    include_once '../../functions/isValid.php';
+
+    //Instantiate DB & Connect
+    $database = new Database();
+    $db = $database->connect();
+
+    //instantiate category object
+    $category = new Category($db);
+    
+    //for post and put, determine if an id is sent through! otherwise nix
+
     switch ($method) {
         case 'GET':
+            if(isset($_GET['id'])){
+                if(isValid($_GET['id'], $category)){
+                    require('read.php');
+                    break;
+                }
+                else{
+                    echo json_encode(
+                        array('message' => 'category_id Not Found')
+                    );
+                    break;
+                }
+            }
             require ('read.php');
             break;
         case 'POST':
-            require ('create.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->category)){
+                require ('create.php');
+            }else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         case 'PUT':
-            require ('update.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->category) && isset($data->id)){
+                if(isValid($id=$data->id, $category)){
+                    require ('update.php');
+                }
+            }
+            else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         case 'DELETE':
-            require ('delete.php');
+            $data = json_decode(file_get_contents("php://input"));
+            if(isset($data->id)){
+                if(isValid($id=$data->id, $category)){
+                    require ('delete.php');
+                }
+            }else{
+                echo json_encode(
+                    array('message' => 'Missing Required Parameters')
+                );
+            }
             break;
         default:
             echo 'Uh-oh!';

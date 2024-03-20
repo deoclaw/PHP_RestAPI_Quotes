@@ -1,15 +1,5 @@
 <?php
-// Headers
 
-// include_once '../../config/Database.php';
-// include_once '../../models/Author.php';
-
-// //Instantiate DB & Connect
-// $database = new Database();
-// $db = $database->connect();
-
-// //instantiate Author object
-// $author = new Author($db);
 
 //get ID from URL
 if ($author->id=isset($_GET['id'])){

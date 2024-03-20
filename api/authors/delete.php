@@ -1,16 +1,5 @@
 <?php
 
-// include_once '../../config/Database.php';
-// include_once '../../models/Author.php';
-
-// //Instantiate DB & Connect
-// $database = new Database();
-// $db = $database->connect();
-
-// //instantiate Author object
-// $author = new Author($db);
-
-//get raw posted data
 
 
 //assign what's in the data obj to the author obj

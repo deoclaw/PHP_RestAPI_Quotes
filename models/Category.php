@@ -52,10 +52,19 @@ class Category {
         $stmt->bindParam(':id', $this->id);
         $stmt->execute();
 
+        //get number of rows
+        $num = $stmt->rowCount();
+        if($num === 0){
+            $this->id = NULL;
+            $this->category = NULL;
+        }else {
+
         //get returned array
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
         $this->id = $row['id'];
         $this->category = $row['category'];
+        }
     }
 
     //CREATE an category
