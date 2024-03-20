@@ -81,18 +81,7 @@ class Author {
 
         //execute our query
         if($stmt->execute()){
-            $query = 'SELECT * FROM author WHERE author = :author';
-
-            //PREPARE STATMENT
-            $stmt = $this->conn->prepare($query);
-        
-            //bind id
-            $stmt->bindParam(':author', $this->author);
-            $stmt->execute();
-            //get returned array
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $this->id = $row['id'];
-            $this->author = $row['author'];
+            return true;
         }
 
         //if error happens, print it
