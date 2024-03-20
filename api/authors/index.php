@@ -38,7 +38,7 @@
             break;
         case 'PUT':
             $data = json_decode(file_get_contents("php://input"));
-            if(isset($data->author) || isset($data->id)){
+            if(isset($data->author) && isset($data->id)){
                 if(isValid($id=$data->id, $author)){
                     require ('update.php');
                 }
